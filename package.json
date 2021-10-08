@@ -1,0 +1,11 @@
+{
+  "name": "api_ecommerce_project",
+  "version": "1.0.0",
+  "description": "API proyecto MisionTic 2022 - Ciclo 3",
+  "main": "index.js",
+  "author": "Equipo 10",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
+}
