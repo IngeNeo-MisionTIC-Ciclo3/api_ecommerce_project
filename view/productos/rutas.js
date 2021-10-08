@@ -3,17 +3,16 @@ import {
 	consultarTodosProductos,
 	crearProducto,
 	editarProducto,
-	eliminarProducto,
-	consultarProducto,
+	eliminarProducto
 } from '../../controller/productos/controller.js';
 
 const rutasProducto = Express.Router();
 
-const AllCallback = (res) => (error, resultado) => {
-	if (error) {
+const AllCallback = (res) => (err, result) => {
+	if (err) {
 		res.status(500).send('Error en operacion con los Productos');
 	} else {
-		res.json(resultado);
+		res.json(result);
 	}
 };
 
@@ -24,12 +23,12 @@ rutasProducto.route('/Productos').get((req, res) => {
 
 rutasProducto.route('/Productos').post((req, res) => {
 	console.log('alguien hizo post en la ruta /Productos');
-	crearProducto(req.body, AllCallback(res));
+	crearProducto(req.body, (AllCallback(res)));
 });
 
 rutasProducto.route('/Productos/:id').patch((req, res) => {
 	console.log('alguien hizo patch en la ruta /Productos');
-	editarProducto(req.params.id, req.body, AllCallback(res));
+	editarProducto(req.params.id, req.body, (AllCallback(res)));
 });
 
 rutasProducto.route('/Productos/:id').delete((req, res) => {
