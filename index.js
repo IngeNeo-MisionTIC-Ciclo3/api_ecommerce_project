@@ -10,6 +10,7 @@ dotenv.config({ path: './.env' });
 const app = Express();
 
 app.use(Express.json());
+
 //Nos permite decirle al servidor que puede recibir peticiones desde cualqueir localizacion, movil, web, etc.
 app.use(Cors());
 

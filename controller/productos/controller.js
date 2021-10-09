@@ -4,24 +4,7 @@ import { getDB } from '../../model/database.js';
 //Se usa el async y el await para que la funcion espere el resultado de la operacion y luego continue
 const consultarTodosProductos = async (callback) => {
 	const BD = getDB();
-	await BD.collection('Productos').find({}).limit(50).toArray(callback);
-};
-
-const crearProducto = async (datosProducto, callback) => {
-	console.log("Entro a la creacion");
-	if (
-		Object.keys(datosProducto).includes('Descripcion') &&
-		Object.keys(datosProducto).includes('ValorU') &&
-		Object.keys(datosProducto).includes('Cantidad') &&
-		Object.keys(datosProducto).includes('Estado')
-	) {
-		console.log("Entro a la validacion");
-		const DB = getDB();
-		// insertOne se usa para crear un nuevo elemento dentro del documento de Mongo
-		await DB.collection('Productos').insertOne(datosProducto, callback);
-	} else {
-		return 'Error al insertar';
-	}
+	await BD.collection('Productos').find({}).toArray(callback);
 };
 
 const editarProducto = async (id, edicion, callback) => {
@@ -43,4 +26,4 @@ const eliminarProducto = async (id, callback) => {
 	await DB.collection('Productos').deleteOne(identificarProducto, callback);
 };
 
-export { consultarTodosProductos, crearProducto, editarProducto, eliminarProducto };
+export { consultarTodosProductos, editarProducto, eliminarProducto };

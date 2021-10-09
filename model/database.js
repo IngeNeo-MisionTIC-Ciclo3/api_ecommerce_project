@@ -3,11 +3,11 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: './.env' });
 
-//Tomamos el sting de conexion de MongoDB desd eel archivo .env
-const stringConexion = process.env.DATABASE_URL;
+//Tomamos el sting de conexion de MongoDB desde el archivo .env
+const Conexion = process.env.DATABASE_URL;
 
 //Instanciamos el cliente de mongo
-const client = new MongoClient(stringConexion, {
+const client = new MongoClient(Conexion, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
