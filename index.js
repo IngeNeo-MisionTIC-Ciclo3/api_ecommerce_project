@@ -3,6 +3,7 @@ import Cors from 'cors';
 import dotenv from 'dotenv';
 import { connectDatabase } from './model/database.js';
 import rutasProducto from './view/productos/rutas.js';
+import rutasUsuario from './view/usuarios/rutas.js';
 
 //Nos permite usar los archivos .env para tener las rutas en otro lado no visibles en el repo
 dotenv.config({ path: './.env' });
@@ -15,6 +16,7 @@ app.use(Express.json());
 app.use(Cors());
 
 app.use(rutasProducto);
+app.use(rutasUsuario);
 
 const principal = () => {
 	return app.listen(process.env.PORT, () => {
