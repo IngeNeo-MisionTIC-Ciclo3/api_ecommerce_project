@@ -10,8 +10,8 @@ const consultarTodosProductos = async (callback) => {
 const crearProducto = async (datosProducto, callback) => {
 	console.log("Entro a la creacion");
 	if (
-		Object.keys(datosProducto).includes('Descripcion del producto') &&
-		Object.keys(datosProducto).includes('Valor Unitario') &&
+		Object.keys(datosProducto).includes('Descripcion') &&
+		Object.keys(datosProducto).includes('ValorU') &&
 		Object.keys(datosProducto).includes('Cantidad') &&
 		Object.keys(datosProducto).includes('Estado')
 	) {
