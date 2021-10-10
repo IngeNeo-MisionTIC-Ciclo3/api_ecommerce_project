@@ -18,17 +18,14 @@ const AllCallback = (res) => (err, result) => {
 };
 
 rutasProducto.route('/Productos').get((req, res) => {
-	console.log('alguien hizo get en la ruta /Productos');
 	consultarTodosProductos(AllCallback(res));
 });
 
 rutasProducto.route('/Productos/:id').patch((req, res) => {
-	console.log('alguien hizo patch en la ruta /Productos');
-	editarProducto(req.params.id, req.body, (AllCallback(res)));
+	(req.params.id, req.body, (AllCallback(res)));
 });
 
 rutasProducto.route('/Productos/:id').delete((req, res) => {
-	console.log('alguien hizo delete en la ruta /Productos');
 	eliminarProducto(req.params.id, AllCallback(res));
 });
 
