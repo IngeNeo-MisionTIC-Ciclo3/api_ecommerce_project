@@ -3,7 +3,9 @@ import {
 	consultarTodosVentas,
 	editarVenta,
 	eliminarVenta,
+	agregarVenta,
 } from '../../controller/ventas/controller.js';
+
 
 //Router se usa para poder tomar la decision de que ruta debe tomar el sistema en determinada peticion
 const rutasVentas = Express.Router();
@@ -29,6 +31,11 @@ rutasVentas.route('/Ventas/:id').patch((req, res) => {
 rutasVentas.route('/Ventas/:id').delete((req, res) => {
 	console.log('alguien hizo delete en la ruta /Ventas');
 	eliminarVenta(req.params.id, AllCallback(res));
+});
+
+rutasVentas.route('/Ventas').post((req, res) => {
+	console.log('alguien hizo post en la ruta /Ventas');
+	agregarVenta(req.body, AllCallback(res));
 });
 
 export default rutasVentas;
