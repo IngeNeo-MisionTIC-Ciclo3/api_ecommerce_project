@@ -26,12 +26,5 @@ const eliminarVenta = async (id, callback) => {
 	await DB.collection('Ventas').deleteOne(identificarVenta, callback);
 };
 
-const agregarVenta = async (datosVenta, callback) => {
-	const DB = getDB();
-	//Con el findOneAndUpdate buscar el elemento con dicho identificador y lo actualiza
-	await DB
-		.collection('Ventas')
-		.insertOne(datosVenta, callback);
-};
 
-export { consultarTodosVentas, editarVenta, eliminarVenta, agregarVenta };
+export { consultarTodosVentas, editarVenta, eliminarVenta };

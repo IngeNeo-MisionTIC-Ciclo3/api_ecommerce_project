@@ -65,6 +65,10 @@ Luego para tener el node_modules y actualizar las dependencias del proyecto ejec
 
 Es necesario configurar el archivo .env con el puerto y el string de conexión a la base de datos MongoDB, posterior a ello =>
 
+Por si se necsita dicha dependencia correr el comando
+
+`$ yarn add nodemon`
+
 Para correr el proyecto en el equipo se usará el comando
 
 `$ yarn start`
