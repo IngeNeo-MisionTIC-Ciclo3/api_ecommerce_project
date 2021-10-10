@@ -26,4 +26,19 @@ const eliminarProducto = async (id, callback) => {
 	await DB.collection('Productos').deleteOne(identificarProducto, callback);
 };
 
-export { consultarTodosProductos, editarProducto, eliminarProducto };
+const crearProducto = async (datosProducto, callback)=> {
+	if (
+		Object.keys(datosProducto).includes('Descripcion') &&
+		Object.keys(datosProducto).includes('ValorU') &&
+		Object.keys(datosProducto).includes('Cantidad') &&
+		Object.keys(datosProducto).includes('Estado') 
+	) {
+		const DB = getDB();
+		await DB.collection('Productos').insertOne(datosProducto, callback);
+	} else {
+		return 'Error no se puede insertar';
+	}
+};
+
+
+export { consultarTodosProductos, editarProducto, eliminarProducto, crearProducto };
