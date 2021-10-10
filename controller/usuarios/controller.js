@@ -14,7 +14,7 @@ const crearUsuario = async (datosUsuario, callback) => {
 		Object.keys(datosUsuario).includes('Correo') &&
 		Object.keys(datosUsuario).includes('TipoUsuario') &&
 		Object.keys(datosUsuario).includes('EstadoUsuario')
-	 ) {
+	) {
 		console.log("Entro a la validación");
 		const DB = getDB();
 		// InsertOne se usa para crear un nuevo usuario dentro del documento de Mongo
@@ -47,7 +47,7 @@ const eliminarUsuario = async (id, callback) => {
 	const DB = getDB();
 	//Con el deleteOne buscar el usuario con dicho identificador y lo elimina
 	await DB.collection('Usuarios')
-	.deleteOne(identificarUsuario, callback);
+		.deleteOne(identificarUsuario, callback);
 };
 
 export { crearUsuario, consultarTodosUsuarios, editarUsuario, eliminarUsuario };
