@@ -2,9 +2,9 @@
 
 Desarrollado en NodeJS - Express - Mongo
 
-###Grupo 10 - Ciclo 3 MinTic - WhatsApp
+### Grupo 10 - Ciclo 3 MinTic - WhatsApp
 
-####Colaboradores
+#### Colaboradores
 
 
 |  | Colaboradores                    | Interfaz - (Backend)                   |
@@ -16,7 +16,7 @@ Desarrollado en NodeJS - Express - Mongo
 | `5`   | Javier Esteban Romero Medina     | Maestro de usuario - Get - Patch - Delete (vista, controlador) |
 
 
-###Link al tablero de Trello
+### Link al tablero de Trello
 
 `<link>` : [Tablero de Trello ](https://trello.com/invite/b/t2gHdrIk/a17019d3002206077d24e6f8f3b0bcd4/scrum-equipo-10 "Tablero de Trello")
 
@@ -62,12 +62,11 @@ Luego para tener el node_modules y actualizar las dependencias del proyecto ejec
 
 `$ yarn install`
 
+Luego instalar el demonio para nodeJS
+
+`$ yarn add nodemon -g`
 
 Es necesario configurar el archivo .env con el puerto y el string de conexión a la base de datos MongoDB, posterior a ello =>
-
-Por si se necsita dicha dependencia correr el comando
-
-`$ yarn add nodemon`
 
 Para correr el proyecto en el equipo se usará el comando
 

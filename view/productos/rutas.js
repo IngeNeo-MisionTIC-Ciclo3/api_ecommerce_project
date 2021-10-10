@@ -6,7 +6,6 @@ import {
 	eliminarProducto
 } from '../../controller/productos/controller.js';
 
-//Router se usa para poder tomar la decision de que ruta debe tomar el sistema en determinada peticion
 const rutasProducto = Express.Router();
 
 const AllCallback = (res) => (err, result) => {
@@ -22,7 +21,7 @@ rutasProducto.route('/Productos').get((req, res) => {
 });
 
 rutasProducto.route('/Productos/:id').patch((req, res) => {
-	(req.params.id, req.body, (AllCallback(res)));
+	editarProducto(req.params.id, req.body, (AllCallback(res)));
 });
 
 rutasProducto.route('/Productos/:id').delete((req, res) => {
