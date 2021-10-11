@@ -20,6 +20,11 @@ Desarrollado en NodeJS - Express - MongoDB
 
 ### Descripción de rutas y cuerpo del request
 
+Para la eliminación y la modificación del registro se debe enviar el _id":"xxxxxxxxxxxxxxxxxxxx" del elemento dentro de la URl del API_TEST
+
+Delete and PATCH : 'http://localhost:XXXX/ruta/xxxxxxxxxxxxxxxxxxx
+
+
 #### Administración
 
 ##### MAESTRO USUARIOS:
@@ -50,7 +55,7 @@ Ejemplo respuesta esperada:
 {
 	method: 'PATCH',
 	url: 'http://localhost:XXXX/usuarios/xxxxxxxxxxxxxxxxxxx',
-	headers: {'Content-Type': 'application/json'},
+
 	data: {
 		"tdocumento": "Cédula de ciudadanía",
 		"ndocumento": 80203987,
@@ -167,7 +172,7 @@ Ejemplo respuesta esperada:
 {
 	method: 'PATCH',
 	url: 'http://localhost:XXXX/productos/xxxxxxxxxxxxxxxxxxx',
-	headers: {'Content-Type': 'application/json'},
+
 	data: {
 		"nom_producto":"Camisa formal",
 		"descripcion": "Prueba Modificar",
@@ -288,7 +293,7 @@ Ejemplo respuesta esperarda:
 {
 	method: 'PATCH',
 	url: 'http://localhost:XXXX/ventas/xxxxxxxxxxxxxxxxxxx',
-	headers: {'Content-Type': 'application/json'},
+
 	data: {
 		"factura": "FAC-01",
 		"id_cliente": "10123654789",
