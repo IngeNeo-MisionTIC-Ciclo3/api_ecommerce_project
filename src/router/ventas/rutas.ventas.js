@@ -4,7 +4,7 @@ import {
 	editarVenta,
 	eliminarVenta,
 	agregarVenta,
-} from '../../controller/ventas/controller.js';
+} from '../../controller/ventas/controller.ventas.js';
 
 const rutasVentas = Express.Router();
 
@@ -16,19 +16,19 @@ const AllCallback = (res) => (err, result) => {
 	}
 };
 
-rutasVentas.route('/Ventas').get((req, res) => {
+rutasVentas.route('/ventas').get((req, res) => {
 	consultarTodosVentas(AllCallback(res));
 });
 
-rutasVentas.route('/Ventas/:id').patch((req, res) => {
+rutasVentas.route('/ventas/:id').patch((req, res) => {
 	editarVenta(req.params.id, req.body, (AllCallback(res)));
 });
 
-rutasVentas.route('/Ventas/:id').delete((req, res) => {
+rutasVentas.route('/ventas/:id').delete((req, res) => {
 	eliminarVenta(req.params.id, AllCallback(res));
 });
 
-rutasVentas.route('/Ventas').post((req, res) => {
+rutasVentas.route('/ventas').post((req, res) => {
 	agregarVenta(req.body, AllCallback(res));
 });
 

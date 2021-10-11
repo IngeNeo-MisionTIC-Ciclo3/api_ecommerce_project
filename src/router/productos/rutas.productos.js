@@ -4,7 +4,7 @@ import {
 	crearProducto,
 	editarProducto,
 	eliminarProducto
-} from '../../controller/productos/controller.js';
+} from '../../controller/productos/controller.productos.js';
 
 const rutasProducto = Express.Router();
 
@@ -16,19 +16,19 @@ const AllCallback = (res) => (err, result) => {
 	}
 };
 
-rutasProducto.route('/Productos').get((req, res) => {
+rutasProducto.route('/productos').get((req, res) => {
 	consultarTodosProductos(AllCallback(res));
 });
 
-rutasProducto.route('/Productos/:id').patch((req, res) => {
+rutasProducto.route('/productos/:id').patch((req, res) => {
 	editarProducto(req.params.id, req.body, (AllCallback(res)));
 });
 
-rutasProducto.route('/Productos/:id').delete((req, res) => {
+rutasProducto.route('/productos/:id').delete((req, res) => {
 	eliminarProducto(req.params.id, AllCallback(res));
 });
 
-rutasProducto.route('/Productos').post((req, res) => {
+rutasProducto.route('/productos').post((req, res) => {
 	crearProducto(req.body, (AllCallback(res)));
 });
 

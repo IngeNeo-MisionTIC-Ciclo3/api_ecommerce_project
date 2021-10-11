@@ -4,7 +4,7 @@ import {
 	consultarTodosUsuarios,
 	editarUsuario,
 	eliminarUsuario
-} from '../../controller/usuarios/controller.js';
+} from '../../controller/usuarios/controller.usuarios.js';
 
 const rutasUsuario = Express.Router();
 
@@ -16,19 +16,19 @@ const AllCallback = (res) => (err, result) => {
 	}
 };
 
-rutasUsuario.route('/Usuarios').post((req, res) => {
+rutasUsuario.route('/usuarios').post((req, res) => {
 	crearUsuario(req.body, (AllCallback(res)));
 });
 
-rutasUsuario.route('/Usuarios').get((req, res) => {
+rutasUsuario.route('/usuarios').get((req, res) => {
 	consultarTodosUsuarios(AllCallback(res));
 });
 
-rutasUsuario.route('/Usuarios/:id').patch((req, res) => {
+rutasUsuario.route('/usuarios/:id').patch((req, res) => {
 	editarUsuario(req.params.id, req.body, (AllCallback(res)));
 });
 
-rutasUsuario.route('/Usuarios/:id').delete((req, res) => {
+rutasUsuario.route('/usuarios/:id').delete((req, res) => {
 	eliminarUsuario(req.params.id, AllCallback(res));
 });
 

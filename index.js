@@ -1,10 +1,10 @@
 import Express from 'express';
 import Cors from 'cors';
 import dotenv from 'dotenv';
-import { connectDatabase } from './model/database.js';
-import rutasProducto from './view/productos/rutas.js';
-import rutasVentas from './view/ventas/rutas.js';
-import rutasUsuario from './view/usuarios/rutas.js';
+import { connectDatabase } from './src/model/database.js';
+import rutasProducto from './src/router/productos/rutas.productos.js';
+import rutasVentas from './src/router/ventas/rutas.ventas.js';
+import rutasUsuario from './src/router/usuarios/rutas.usuarios.js';
 
 
 //Nos permite usar los archivos .env para tener las rutas en otro lado no visibles en el repo
