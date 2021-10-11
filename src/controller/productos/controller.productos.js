@@ -1,9 +1,10 @@
 import { ObjectId } from 'mongodb';
 import { getDB } from '../../model/database.js';
 
+
 const consultarTodosProductos = async (callback) => {
-	const BD = getDB();
-	await BD.collection('Productos').find({}).toArray(callback);
+	const DB = getDB();
+	await DB.collection('Productos').find({}).toArray(callback);
 };
 
 const editarProducto = async (id, edicion, callback) => {
@@ -25,10 +26,11 @@ const eliminarProducto = async (id, callback) => {
 
 const crearProducto = async (datosProducto, callback)=> {
 	if (
-		Object.keys(datosProducto).includes('Descripcion') &&
-		Object.keys(datosProducto).includes('ValorU') &&
-		Object.keys(datosProducto).includes('Cantidad') &&
-		Object.keys(datosProducto).includes('Estado')
+		Object.keys(datosProducto).includes('nom_producto') &&
+		Object.keys(datosProducto).includes('descripcion') &&
+		Object.keys(datosProducto).includes('valorU') &&
+		Object.keys(datosProducto).includes('cantidad') &&
+		Object.keys(datosProducto).includes('estado')
 	) {
 		const DB = getDB();
 		await DB.collection('Productos').insertOne(datosProducto, callback);

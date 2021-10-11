@@ -3,16 +3,15 @@ import { getDB } from '../../model/database.js';
 
 const crearUsuario = async (datosUsuario, callback) => {
 	if (
-		Object.keys(datosUsuario).includes('TipoDocumento') &&
-		Object.keys(datosUsuario).includes('Documento') &&
-		Object.keys(datosUsuario).includes('Nombres') &&
-		Object.keys(datosUsuario).includes('Apellidos') &&
-		Object.keys(datosUsuario).includes('Telefono') &&
-		Object.keys(datosUsuario).includes('Correo') &&
-		Object.keys(datosUsuario).includes('TipoUsuario') &&
-		Object.keys(datosUsuario).includes('EstadoUsuario')
+		Object.keys(datosUsuario).includes('tdocumento') &&
+		Object.keys(datosUsuario).includes('ndocumento') &&
+		Object.keys(datosUsuario).includes('nombre') &&
+		Object.keys(datosUsuario).includes('apellido') &&
+		Object.keys(datosUsuario).includes('telefono') &&
+		Object.keys(datosUsuario).includes('correo') &&
+		Object.keys(datosUsuario).includes('tusuario') &&
+		Object.keys(datosUsuario).includes('estado')
 	) {
-		console.log("Entro a la validación");
 		const DB = getDB();
 		await DB.collection('Usuarios').insertOne(datosUsuario, callback);
 	} else {
