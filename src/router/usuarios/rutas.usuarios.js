@@ -16,12 +16,12 @@ const AllCallback = (res) => (err, result) => {
 	}
 };
 
-rutasUsuario.route('/usuarios').post((req, res) => {
-	crearUsuario(req.body, (AllCallback(res)));
-});
-
 rutasUsuario.route('/usuarios').get((req, res) => {
 	consultarTodosUsuarios(AllCallback(res));
+});
+
+rutasUsuario.route('/usuarios').post((req, res) => {
+	crearUsuario(req.body, (AllCallback(res)));
 });
 
 rutasUsuario.route('/usuarios/:id').patch((req, res) => {
