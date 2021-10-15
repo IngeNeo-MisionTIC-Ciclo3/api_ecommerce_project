@@ -1,7 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { getDB } from '../../model/database.js';
 
-//Función de creación se recibe el body que se debe incluir en la DB (Ejemplos los cuerpos esta en rutas)
 const crearUsuario = async (datosUsuario, callback) => {
 	if (
 		Object.keys(datosUsuario).includes('tdocumento') &&
@@ -21,13 +20,11 @@ const crearUsuario = async (datosUsuario, callback) => {
 
 }
 
-//Creamos la función para consultar todos los usuarios de la base de datos
 const consultarTodosUsuarios = async (callback) => {
 	const DB = getDB();
 	await DB.collection('Usuarios').find({}).toArray(callback);
 };
 
-//Función de actualización se recibe el id del usuario y el body que se debe actualizar (Ejemplos los cuerpos esta en rutas)
 const editarUsuario = async (id, edicion, callback) => {
 	const identificarUsuario = { _id: new ObjectId(id) };
 	const orden = {
@@ -39,7 +36,6 @@ const editarUsuario = async (id, edicion, callback) => {
 		.findOneAndUpdate(identificarUsuario, orden, { upsert: true, returnOriginal: true }, callback);
 };
 
-//Función de eliminación se recibe el id del usuario a eliminar.
 const eliminarUsuario = async (id, callback) => {
 	const identificarUsuario = { _id: new ObjectId(id) };
 	const DB = getDB();
@@ -47,5 +43,4 @@ const eliminarUsuario = async (id, callback) => {
 		.deleteOne(identificarUsuario, callback);
 };
 
-//Exportamos las funciones a usar en rutas
 export { crearUsuario, consultarTodosUsuarios, editarUsuario, eliminarUsuario };
