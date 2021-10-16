@@ -43,7 +43,7 @@ Ejemplo respuesta esperada:
 	"tdocumento": "Cédula de ciudadanía",
 	"ndocumento": 79654258,
 	"nombres": "Roger Alexis Valencia García",
-	telefono": 3205557788,
+	"telefono": 3205557788,
 	"correo": "rogervalencia@gmail.com",
 	"tusuario": "Administrador",
 	"estado": "No Autorizado"
@@ -60,7 +60,7 @@ Ejemplo respuesta esperada:
 		"tdocumento": "Cédula de ciudadanía",
 		"ndocumento": 79654258,
 		"nombres": "Roger Alexis Valencia García",
-		telefono": 3205557788,
+		"telefono": 3205557788,
 		"correo": "rogervalencia@gmail.com",
 		"tusuario": "Administrador",
 		"estado": "No Autorizado"
@@ -80,7 +80,7 @@ Ejemplo respuesta esperarda:
 		"tdocumento": "Cédula de ciudadanía",
 		"ndocumento": 79654258,
 		"nombres": "Roger Alexis Valencia García",
-		telefono": 3205557788,
+		"telefono": 3205557788,
 		"correo": "rogervalencia@gmail.com",
 		"tusuario": "Administrador",
 		"estado": "No Autorizado"
