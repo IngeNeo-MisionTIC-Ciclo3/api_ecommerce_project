@@ -1,44 +1,367 @@
-### Backend - Proyecto Sitio Web - Venta de prendas de vestir - Equipo 10  Ciclo 3
+### Backend - Proyecto Sitio Web - Venta de prendas de vestir - Equipo 10 Ciclo 3
 
-Desarrollado en NodeJS - Express - Mongo
+Desarrollado en NodeJS - Express - MongoDB
 
-###Grupo 10 - Ciclo 3 MinTic - WhatsApp
+### Grupo 10 - Ciclo 3 MinTic - WhatsApp
 
-####Colaboradores
+#### Colaboradores
 
+|     | Colaboradores                        | Interfaz - (Backend)                       |
+| --- | ------------------------------------ | ------------------------------------------ |
+| `1` | Roger Alexis Valencia Garcia.        | Maestro de producto - Get - Patch - Delete |
+| `2` | Diana Marcela Pinilla Ortegón        | Registro de producto - Post                |
+| `3` | Rafael Alejandro Lancheros Rodríguez | Maestro de venta - Get - Patch - Delete    |
+| `4` | Leidy Viviana Gallardo Rico          | Registro de venta - Post                   |
+| `5` | Javier Esteban Romero Medina         | Maestro de usuario - Get - Patch - Delete  |
 
-|  | Colaboradores                    | Interfaz - (Backend)                   |
-| ------------- | ------------------------------ |------------------------------ |
-| `1`   | Roger Alexis Valencia Garcia.       | Maestro de producto - Get - Patch - Delete (Modelo, vista, controlador) |
-| `2`   | Diana Marcela Pinilla Ortegón     |  Registro de producto - Post (vista, controlador) |
-| `3`   | Rafael Alejandro Lancheros Rodríguez     | Maestro de venta - Get - Patch - Delete (vista, controlador) |
-| `4`   | Leidy Viviana Gallardo Rico     |  Registro de venta - Post (vista, controlador) |
-| `5`   | Javier Esteban Romero Medina     | Maestro de usuario - Get - Patch - Delete (vista, controlador) |
-
-
-###Link al tablero de Trello
+### Link al tablero de Trello
 
 `<link>` : [Tablero de Trello ](https://trello.com/invite/b/t2gHdrIk/a17019d3002206077d24e6f8f3b0bcd4/scrum-equipo-10 "Tablero de Trello")
 
+### Descripción de rutas y cuerpo del request
 
-### Descripción GENERAL de interfaces
+Para la eliminación y la modificación del registro se debe enviar el _id":"xxxxxxxxxxxxxxxxxxxx" del elemento dentro de la URl del API_TEST
+
+Delete and PATCH : 'http://localhost:XXXX/ruta/xxxxxxxxxxxxxxxxxxx
+
 
 #### Administración
-##### Maestro de Usuarios:
 
-Para esta interfaz podremos realizar la actualización de los datos del usuario y su estado dentro de la plataforma, así como el tipo de perfil que manejará en la misma, de la misma manera se podrá visualizar los usuarios registrados en el sistema.
+##### MAESTRO USUARIOS:
 
-##### Productos:
-Para esta interfaz podremos realizar el ingreso o creación de los productos que se comercializan en la compañía y que serán desplegados en el Landing pages, cabe aclarar que esto solo lo podrá hacer el perfil autorizado.
+{
+method: 'GET',
+url: 'http://localhost:XXXX/usuarios/'
+};
 
-##### Maestro de Productos:
-Para esta interfaz podremos realizar la actualización de la información de productos dentro de la plataforma, así como listar los mismos.
+Ejemplo respuesta esperada:
 
-##### Ventas:
-Para esta interfaz podremos realizar el registro o movimiento de ventas de los productos que se comercializan en la compañía, que estén creados y que tenga en stock.
+```
+[
+{
+	"_id": "XXXXXXXXXXXXXXXXXXXXXXX",
+	"tdocumento": "Cédula de ciudadanía",
+	"ndocumento": 79654258,
+	"nombre": "Roger Alexis",
+	"apellido": "Valencia García",
+	"telefono": 3205557788,
+	"correo": "rogervalencia@gmail.com",
+	"tusuario": "Administrador",
+	"estado": "No Autorizado"
+}
+]
+```
 
-##### Maestro de Ventas:
-Para esta interfaz podremos realizar la actualización de la información de las ventas y conocer en todo momento el estado en que se encuentra el pedido y tener la trazabilidad de la operación.
+{
+	method: 'PATCH',
+	url: 'http://localhost:XXXX/usuarios/xxxxxxxxxxxxxxxxxxx',
+
+	data: {
+		"tdocumento": "Cédula de ciudadanía",
+		"ndocumento": 80203987,
+		"nombre": "Roger Alexis",
+		"apellido": "Valencia García",
+		"telefono": 3205557788,
+		"correo": "roger_valencia@yahoo.com",
+		"tusuario": "Administrador",
+		"estado": "Autorizado"
+	}
+};
+
+Ejemplo respuesta esperarda:
+
+```
+{
+	"lastErrorObject": {
+		"n": 1,
+		"updatedExisting": true
+	},
+	"value": {
+		"_id": "XXXXXXXXXXXXXXXXXXXXXXX",
+		"tdocumento": "Cédula de ciudadanía",
+		"ndocumento": 79654258,
+		"nombre": "Roger Alexis",
+		"apellido": "Valencia García",
+		"telefono": 3205557788,
+		"correo": "rogervalencia@gmail.com",
+		"tusuario": "Administrador",
+		"estado": "No Autorizado"
+	},
+	"ok": 1,
+	"$clusterTime": {
+		"clusterTime": {
+		"$timestamp": "7017935252668547074"
+		},
+		"signature": {
+		"hash": "o8NqWHGXF30DKvPmHWbifhWUjRM=",
+		"keyId": {
+			"low": 1,
+			"high": 1623321998,
+			"unsigned": false
+			}
+		}
+	},
+	"operationTime": {
+		"$timestamp": "7017935252668547074"
+	}
+}
+```
+
+{
+	method: 'DELETE',
+	url: 'http://localhost:XXXX/usuarios/xxxxxxxxxxxxxxxxxxx'
+};
+
+Ejemplo respuesta esperarda:
+
+```
+{
+	"acknowledged": true,
+	"deletedCount": 1
+}
+```
+
+##### PRODUCTOS:
+
+{
+method: 'POST',
+url: 'http://localhost:XXXX/productos/'
+
+	data: {
+		"nom_producto":"Camisa formal",
+		"descripcion": "Prueba Crear",
+		"valorU": 50000,
+		"cantidad": 15,
+		"estado": "Disponible"
+	}
+
+};
+
+Ejemplo respuesta esperarda:
+
+```
+{
+	"acknowledged": true,
+	"insertedId": "xxxxxxxxxxxxxxxxxxx"
+}
+
+```
+
+##### MAESTRO PRODUCTOS:
+
+{
+method: 'GET',
+url: 'http://localhost:XXXX/productos/'
+};
+
+Ejemplo respuesta esperada:
+
+```
+[
+{
+	"_id": "xxxxxxxxxxxxxxxxxxx",
+	"nom_producto":"Camisa formal",
+	"descripcion": "Prueba Crear",
+	"valorU": 50000,
+	"cantidad": 15,
+	"estado": "Disponible"
+}
+]
+```
+
+{
+	method: 'PATCH',
+	url: 'http://localhost:XXXX/productos/xxxxxxxxxxxxxxxxxxx',
+
+	data: {
+		"nom_producto":"Camisa formal",
+		"descripcion": "Prueba Modificar",
+		"valorU": 50000,
+		"cantidad": 15,
+		"estado": "No Disponible"
+	}
+};
+
+Ejemplo respuesta esperarda:
+
+```
+{
+	"lastErrorObject": {
+		"n": 1,
+		"updatedExisting": true
+	},
+	"value": {
+		"_id": "xxxxxxxxxxxxxxxxxxx'",
+		"nom_producto":"Camisa formal",
+		"descripcion": "Prueba Crear",
+		"valorU": 50000,
+		"cantidad": 15,
+		"estado": "Disponible"
+	},
+	"ok": 1,
+	"$clusterTime": {
+		"clusterTime": {
+		"$timestamp": "7017935252668547074"
+		},
+		"signature": {
+		"hash": "o8NqWHGXF30DKvPmHWbifhWUjRM=",
+		"keyId": {
+			"low": 1,
+			"high": 1623321998,
+			"unsigned": false
+			}
+		}
+	},
+	"operationTime": {
+		"$timestamp": "7017935252668547074"
+	}
+}
+```
+
+{
+	method: 'DELETE',
+	url: 'http://localhost:XXXX/productos/xxxxxxxxxxxxxxxxxxx'
+};
+
+Ejemplo respuesta esperarda:
+
+```
+{
+	"acknowledged": true,
+	"deletedCount": 1
+}
+```
+
+##### VENTAS:
+
+{
+method: 'POST',
+url: 'http://localhost:XXXX/ventas/'
+
+	data: {
+		"factura": "FAC-01",
+		"id_cliente": "10123654789",
+		"nom_cliente": "Cliente1",
+		"id_vendedor": "10478912365",
+		"nom_vendedor": "Vendedor1",
+		"id_producto": "XXXXXXXXXXXX",
+		"nom_producto": "Camiseta elegante",
+		"cantidad": 2,
+		"v_unitario": 80000,
+		"v_total": 160000
+	}
+
+};
+
+Ejemplo respuesta esperarda:
+
+```
+{
+	"acknowledged": true,
+	"insertedId": "xxxxxxxxxxxxxxxxxxx"
+}
+
+```
+
+##### MAESTRO VENTAS:
+
+{
+	method: 'GET',
+	url: 'http://localhost:XXXX/ventas/'
+};
+
+Ejemplo respuesta esperarda:
+
+```
+[
+{
+	"_id": "xxxxxxxxxxxxxxxxxxx",
+	"factura": "FAC-01",
+	"id_cliente": "10123654789",
+	"nom_cliente": "Cliente1",
+	"id_vendedor": "10478912365",
+	"nom_vendedor": "Vendedor1",
+	"id_producto": "XXXXXXXXXXXX",
+	"nom_producto": "Camiseta elegante",
+	"cantidad": 2,
+	"v_unitario": 80000,
+	"v_total": 160000
+}
+]
+```
+
+{
+	method: 'PATCH',
+	url: 'http://localhost:XXXX/ventas/xxxxxxxxxxxxxxxxxxx',
+
+	data: {
+		"factura": "FAC-01",
+		"id_cliente": "10123654789",
+		"nom_cliente": "Cliente1",
+		"id_vendedor": "10478912365",
+		"nom_vendedor": "Vendedor1",
+		"id_producto": "XXXXXXXXXXXX",
+		"nom_producto": "Camiseta informal",
+		"cantidad": 3,
+		"v_unitario": 40000,
+		"v_total": 120000
+	}
+};
+
+Ejemplo respuesta esperarda:
+
+```
+{
+	"lastErrorObject": {
+	"n": 1,
+	"updatedExisting": true
+	},
+	"value": {
+		"_id": "xxxxxxxxxxxxxxxxxxx",
+		"factura": "FAC-01",
+		"id_cliente": "10123654789",
+		"nom_cliente": "Cliente1",
+		"id_vendedor": "10478912365",
+		"nom_vendedor": "Vendedor1",
+		"id_producto": "XXXXXXXXXXXX",
+		"nom_producto": "Camiseta elegante",
+		"cantidad": 2,
+		"v_unitario": 80000,
+		"v_total": 160000
+	},
+	"ok": 1,
+	"$clusterTime": {
+		"clusterTime": {
+			"$timestamp": "7017935252668547074"
+			},
+		"signature": {
+			"hash": "o8NqWHGXF30DKvPmHWbifhWUjRM=",
+			"keyId": {
+			"low": 1,
+			"high": 1623321998,
+			"unsigned": false
+			}
+		}
+	},
+	"operationTime": {
+		"$timestamp": "7017935252668547074"
+	}
+}
+```
+
+{
+	method: 'DELETE',
+	url: 'http://localhost:XXXX/ventas/xxxxxxxxxxxxxxxxxxx'
+};
+
+Ejemplo respuesta esperarda:
+
+```
+{
+	"acknowledged": true,
+	"deletedCount": 1
+}
+```
 
 ### Comandos a ejecutar:
 
@@ -62,6 +385,9 @@ Luego para tener el node_modules y actualizar las dependencias del proyecto ejec
 
 `$ yarn install`
 
+Luego instalar el demonio para nodeJS
+
+`$ yarn add nodemon -g`
 
 Es necesario configurar el archivo .env con el puerto y el string de conexión a la base de datos MongoDB, posterior a ello =>
 

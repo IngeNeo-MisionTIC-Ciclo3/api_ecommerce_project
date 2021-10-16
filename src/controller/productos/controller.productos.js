@@ -1,37 +1,40 @@
 import { ObjectId } from 'mongodb';
 import { getDB } from '../../model/database.js';
 
-//Se usa el async y el await para que la funcion espere el resultado de la operacion y luego continue
+
+//Creamos la función para consultar todos los productos de la base de datos
 const consultarTodosProductos = async (callback) => {
-	const BD = getDB();
-	await BD.collection('Productos').find({}).toArray(callback);
+	const DB = getDB();
+	await DB.collection('Productos').find({}).toArray(callback);
 };
 
+//Función de actualización se recibe el id del producto y el body que se debe actualizar (Ejemplos los cuerpos esta en rutas)
 const editarProducto = async (id, edicion, callback) => {
 	const identificarProducto = { _id: new ObjectId(id) };
 	const orden = {
 		$set: edicion,
 	};
 	const DB = getDB();
-	//Con el findOneAndUpdate buscar el elemento con dicho identificador y lo actualiza
 	await DB
 		.collection('Productos')
 		.findOneAndUpdate(identificarProducto, orden, { upsert: true, returnOriginal: true }, callback);
 };
 
+//Función de eliminación se recibe el id del producto a eliminar.
 const eliminarProducto = async (id, callback) => {
 	const identificarProducto = { _id: new ObjectId(id) };
 	const DB = getDB();
-	//Con el deleteOne buscar el elemento con dicho identificador y lo elimina
 	await DB.collection('Productos').deleteOne(identificarProducto, callback);
 };
 
+//Función de creación se recibe el body que se debe incluir en la DB (Ejemplos los cuerpos esta en rutas)
 const crearProducto = async (datosProducto, callback)=> {
 	if (
-		Object.keys(datosProducto).includes('Descripcion') &&
-		Object.keys(datosProducto).includes('ValorU') &&
-		Object.keys(datosProducto).includes('Cantidad') &&
-		Object.keys(datosProducto).includes('Estado') 
+		Object.keys(datosProducto).includes('nom_producto') &&
+		Object.keys(datosProducto).includes('descripcion') &&
+		Object.keys(datosProducto).includes('valorU') &&
+		Object.keys(datosProducto).includes('cantidad') &&
+		Object.keys(datosProducto).includes('estado')
 	) {
 		const DB = getDB();
 		await DB.collection('Productos').insertOne(datosProducto, callback);
@@ -40,5 +43,5 @@ const crearProducto = async (datosProducto, callback)=> {
 	}
 };
 
-
+//Exportamos las funciones a usar en rutas
 export { consultarTodosProductos, editarProducto, eliminarProducto, crearProducto };
