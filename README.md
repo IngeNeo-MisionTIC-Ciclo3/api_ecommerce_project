@@ -42,9 +42,8 @@ Ejemplo respuesta esperada:
 	"_id": "XXXXXXXXXXXXXXXXXXXXXXX",
 	"tdocumento": "Cédula de ciudadanía",
 	"ndocumento": 79654258,
-	"nombre": "Roger Alexis",
-	"apellido": "Valencia García",
-	"telefono": 3205557788,
+	"nombres": "Roger Alexis Valencia García",
+	telefono": 3205557788,
 	"correo": "rogervalencia@gmail.com",
 	"tusuario": "Administrador",
 	"estado": "No Autorizado"
@@ -57,14 +56,14 @@ Ejemplo respuesta esperada:
 	url: 'http://localhost:XXXX/usuarios/xxxxxxxxxxxxxxxxxxx',
 
 	data: {
+		"_id": "XXXXXXXXXXXXXXXXXXXXXXX",
 		"tdocumento": "Cédula de ciudadanía",
-		"ndocumento": 80203987,
-		"nombre": "Roger Alexis",
-		"apellido": "Valencia García",
-		"telefono": 3205557788,
-		"correo": "roger_valencia@yahoo.com",
+		"ndocumento": 79654258,
+		"nombres": "Roger Alexis Valencia García",
+		telefono": 3205557788,
+		"correo": "rogervalencia@gmail.com",
 		"tusuario": "Administrador",
-		"estado": "Autorizado"
+		"estado": "No Autorizado"
 	}
 };
 
@@ -80,9 +79,8 @@ Ejemplo respuesta esperarda:
 		"_id": "XXXXXXXXXXXXXXXXXXXXXXX",
 		"tdocumento": "Cédula de ciudadanía",
 		"ndocumento": 79654258,
-		"nombre": "Roger Alexis",
-		"apellido": "Valencia García",
-		"telefono": 3205557788,
+		"nombres": "Roger Alexis Valencia García",
+		telefono": 3205557788,
 		"correo": "rogervalencia@gmail.com",
 		"tusuario": "Administrador",
 		"estado": "No Autorizado"
@@ -247,7 +245,8 @@ url: 'http://localhost:XXXX/ventas/'
 		"nom_producto": "Camiseta elegante",
 		"cantidad": 2,
 		"v_unitario": 80000,
-		"v_total": 160000
+		"v_total": 160000,
+		"estado": "En proceso"
 	}
 
 };
@@ -283,7 +282,8 @@ Ejemplo respuesta esperarda:
 	"nom_producto": "Camiseta elegante",
 	"cantidad": 2,
 	"v_unitario": 80000,
-	"v_total": 160000
+	"v_total": 160000,
+	"estado": "En proceso"
 }
 ]
 ```
@@ -301,7 +301,8 @@ Ejemplo respuesta esperarda:
 		"nom_producto": "Camiseta informal",
 		"cantidad": 3,
 		"v_unitario": 40000,
-		"v_total": 120000
+		"v_total": 120000,
+		"estado": "En proceso"
 	}
 };
 
@@ -323,7 +324,8 @@ Ejemplo respuesta esperarda:
 		"nom_producto": "Camiseta elegante",
 		"cantidad": 2,
 		"v_unitario": 80000,
-		"v_total": 160000
+		"v_total": 160000,
+		"estado": "En proceso"
 	},
 	"ok": 1,
 	"$clusterTime": {
