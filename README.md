@@ -239,7 +239,6 @@ method: 'POST',
 url: 'http://localhost:XXXX/ventas/'
 
 	data: {
-		"factura": "FAC-01",
 		"id_cliente": "10123654789",
 		"nom_cliente": "Cliente1",
 		"id_vendedor": "10478912365",
@@ -276,7 +275,6 @@ Ejemplo respuesta esperarda:
 [
 {
 	"_id": "xxxxxxxxxxxxxxxxxxx",
-	"factura": "FAC-01",
 	"id_cliente": "10123654789",
 	"nom_cliente": "Cliente1",
 	"id_vendedor": "10478912365",
@@ -295,7 +293,6 @@ Ejemplo respuesta esperarda:
 	url: 'http://localhost:XXXX/ventas/xxxxxxxxxxxxxxxxxxx',
 
 	data: {
-		"factura": "FAC-01",
 		"id_cliente": "10123654789",
 		"nom_cliente": "Cliente1",
 		"id_vendedor": "10478912365",
@@ -318,7 +315,6 @@ Ejemplo respuesta esperarda:
 	},
 	"value": {
 		"_id": "xxxxxxxxxxxxxxxxxxx",
-		"factura": "FAC-01",
 		"id_cliente": "10123654789",
 		"nom_cliente": "Cliente1",
 		"id_vendedor": "10478912365",

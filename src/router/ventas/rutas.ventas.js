@@ -27,7 +27,6 @@ rutasVentas.route('/ventas').get((req, res) => {
 * Se envia un request con el id que se quiere actualizar asi como los datos a cambiar en la DB
 * el cuerpo seria como el siguiente:
 * data: {
-*		"factura": "FAC-01",
 *		"id_cliente": "10123654789",
 *		"nom_cliente": "Cliente1",
 *		"id_vendedor": "10478912365",
@@ -56,7 +55,6 @@ rutasVentas.route('/ventas/:id').delete((req, res) => {
 * Se envia un request con los datos a insertar en la DB
 * el cuerpo seria como el siguiente:
 * data: {
-*		"factura": "FAC-01",
 *		"id_cliente": "10123654789",
 *		"nom_cliente": "Cliente1",
 *		"id_vendedor": "10478912365",
