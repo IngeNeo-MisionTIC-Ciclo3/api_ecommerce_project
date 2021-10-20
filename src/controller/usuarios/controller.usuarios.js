@@ -43,7 +43,8 @@ const consultarOcrearUsuario = async(req, callback) =>{
 		}else{
 			user.auth0ID = user._id;
 			delete user._id;
-			user.tusuario = 'Pendiente';
+			user.tusuario = 'Sin rol';
+			user.estado = 'Pendiente';
 			await crearUsuario(user, (error, respuesta) => callback(error, user));
 		}
 	});
