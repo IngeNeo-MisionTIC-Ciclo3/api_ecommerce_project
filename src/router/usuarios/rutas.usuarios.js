@@ -3,7 +3,8 @@ import {
 	crearUsuario,
 	consultarTodosUsuarios,
 	editarUsuario,
-	eliminarUsuario
+	eliminarUsuario,
+	consultarOcrearUsuario,
 } from '../../controller/usuarios/controller.usuarios.js';
 
 //Definimos la variable para usar las rutas de Express
@@ -17,6 +18,12 @@ const AllCallback = (res) => (err, result) => {
 		res.json(result);
 	}
 };
+
+//Definimos la ruta a usar para el metodo GET en usuarios, esto para obtener todos los usuarios de MongoDB
+rutasUsuario.route('/usuarios/iam').get((req, res) => {
+	console.log("Alguien hizo get desde la ruta /iam");
+	consultarOcrearUsuario(req, AllCallback(res));
+});
 
 //Definimos la ruta a usar para el metodo GET en usuarios, esto para obtener todos los usuarios de MongoDB
 rutasUsuario.route('/usuarios').get((req, res) => {
