@@ -3,22 +3,12 @@ import { getDB } from '../../model/database.js';
 import jwt_decode from 'jwt-decode'
 
 
-//Crear un usuario
-const crearUsuario = async (datosUsuario, callback) => {
-	const DB = getDB();
-	await DB
-		.collection('Usuarios')
-		.insertOne(datosUsuario, callback);
-};
-
 //Consulta si existe el usuario en la BD con el email que traemos en el token, sino lo crea
 const consultarOcrearUsuario = async(req, callback) =>{
 	const token = req.headers.authorization.split('Bearer')[1];
 	const user = jwt_decode(token)['http://localhost/userData'];
-	console.log(user);
 	const DB = getDB();
 	await DB.collection('Usuarios').findOne({email: user.email}, async(error,response) =>{
-		console.log('Respuesta de la BD',response);
 		if(response){
 			callback(error, response);
 		}else{
@@ -29,6 +19,14 @@ const consultarOcrearUsuario = async(req, callback) =>{
 			await crearUsuario(user, (error, respuesta) => callback(error, user));
 		}
 	});
+};
+
+//Crear un usuario
+const crearUsuario = async (datosUsuario, callback) => {
+	const DB = getDB();
+	await DB
+		.collection('Usuarios')
+		.insertOne(datosUsuario, callback);
 };
 
 //Creamos la función para consultar todos los usuarios de la base de datos

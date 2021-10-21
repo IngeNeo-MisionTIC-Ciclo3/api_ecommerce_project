@@ -19,9 +19,8 @@ const AllCallback = (res) => (err, result) => {
 	}
 };
 
-//Definimos la ruta a usar para el metodo GET en usuarios, esto para obtener todos los usuarios de MongoDB
+//Definimos la ruta a usar para el metodo GET en usuarios, esto para obtener el usaurio que se esta logeando y saber si existe en MongoDB
 rutasUsuario.route('/usuarios/iam').get((req, res) => {
-	console.log("Alguien hizo get desde la ruta /iam");
 	consultarOcrearUsuario(req, AllCallback(res));
 });
 
