@@ -36,9 +36,9 @@ rutasUsuario.route('/usuarios').get((req, res) => {
 * data: {
 *		"tdocumento": "Cédula de ciudadanía",
 *		"ndocumento": 80203987,
-*		"nombres": "Roger Alexis",
+*		"name": "Roger Alexis",
 *		"telefono": 3205557788,
-*		"correo": "roger_valencia@yahoo.com",
+*		"email": "roger_valencia@yahoo.com",
 *		"tusuario": "Administrador",
 *		"estado": "Pendiente"
 *	}
@@ -54,9 +54,9 @@ rutasUsuario.route('/usuarios').post((req, res) => {
 * data: {
 *		"tdocumento": "Cédula de ciudadanía",
 *		"ndocumento": 80203987,
-*		"nombres": "Roger Alexis",
+*		"name": "Roger Alexis",
 *		"telefono": 3205557788,
-*		"correo": "roger_valencia@yahoo.com",
+*		"email": "roger_valencia@yahoo.com",
 *		"tusuario": "Administrador",
 *		"estado": "Autorizado"
 *	}

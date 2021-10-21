@@ -2,26 +2,8 @@ import { ObjectId } from 'mongodb';
 import { getDB } from '../../model/database.js';
 import jwt_decode from 'jwt-decode'
 
-//Función de creación se recibe el body que se debe incluir en la DB (Ejemplos los cuerpos esta en rutas)
-/*const crearUsuario = async (datosUsuario, callback) => {
-	if (
-		Object.keys(datosUsuario).includes('tdocumento') &&
-		Object.keys(datosUsuario).includes('ndocumento') &&
-		Object.keys(datosUsuario).includes('nombres') &&
-		Object.keys(datosUsuario).includes('telefono') &&
-		Object.keys(datosUsuario).includes('correo') &&
-		Object.keys(datosUsuario).includes('tusuario') &&
-		Object.keys(datosUsuario).includes('estado')
-	) {
-		const DB = getDB();
-		await DB.collection('Usuarios').insertOne(datosUsuario, callback);
-	} else {
-		return 'Error al insertar nuevo usuario';
-	}
 
-}*/
-
-//Crear un usaurio
+//Crear un usuario
 const crearUsuario = async (datosUsuario, callback) => {
 	const DB = getDB();
 	await DB
@@ -29,7 +11,7 @@ const crearUsuario = async (datosUsuario, callback) => {
 		.insertOne(datosUsuario, callback);
 };
 
-
+//Consulta si existe el usuario en la BD con el email que traemos en el token, sino lo crea
 const consultarOcrearUsuario = async(req, callback) =>{
 	const token = req.headers.authorization.split('Bearer')[1];
 	const user = jwt_decode(token)['http://localhost/userData'];
@@ -39,7 +21,6 @@ const consultarOcrearUsuario = async(req, callback) =>{
 		console.log('Respuesta de la BD',response);
 		if(response){
 			callback(error, response);
-
 		}else{
 			user.auth0ID = user._id;
 			delete user._id;
@@ -48,8 +29,6 @@ const consultarOcrearUsuario = async(req, callback) =>{
 			await crearUsuario(user, (error, respuesta) => callback(error, user));
 		}
 	});
-	//console.log('token', jwt_decode(token));
-	//console.log('token', token);
 };
 
 //Creamos la función para consultar todos los usuarios de la base de datos

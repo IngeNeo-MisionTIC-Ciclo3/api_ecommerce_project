@@ -7,6 +7,7 @@ import rutasVentas from './src/router/ventas/rutas.ventas.js';
 import rutasUsuario from './src/router/usuarios/rutas.usuarios.js';
 import jwt from 'express-jwt';
 import jwks from 'jwks-rsa';
+import validarEstadoUsuario from './src/middleware/validarEstadoUsuario.js'
 
 //Nos permite usar los archivos .env para tener las rutas en otro lado no visibles en el repo
 dotenv.config({ path: './.env' });
@@ -32,6 +33,7 @@ var jwtCheck = jwt({
 
 app.use(jwtCheck);
 
+app.use(validarEstadoUsuario);
 //Los middleware de las diferentes Endpoints del aplicativo
 app.use(rutasVentas);
 app.use(rutasProducto);
