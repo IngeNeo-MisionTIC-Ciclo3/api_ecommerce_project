@@ -30,11 +30,11 @@ const eliminarProducto = async (id, callback) => {
 //Función de creación se recibe el body que se debe incluir en la DB (Ejemplos los cuerpos esta en rutas)
 const crearProducto = async (datosProducto, callback)=> {
 	if (
-		Object.keys(datosProducto).includes('nom_producto') &&
-		Object.keys(datosProducto).includes('descripcion') &&
-		Object.keys(datosProducto).includes('valorU') &&
-		Object.keys(datosProducto).includes('cantidad') &&
-		Object.keys(datosProducto).includes('estado')
+		datosProducto.nom_producto &&
+		datosProducto.descripcion &&
+		datosProducto.valorU &&
+		datosProducto.cantidad &&
+		datosProducto.estado
 	) {
 		const DB = getDB();
 		await DB.collection('Productos').insertOne(datosProducto, callback);

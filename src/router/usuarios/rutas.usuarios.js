@@ -3,7 +3,8 @@ import {
 	crearUsuario,
 	consultarTodosUsuarios,
 	editarUsuario,
-	eliminarUsuario
+	eliminarUsuario,
+	consultarOcrearUsuario,
 } from '../../controller/usuarios/controller.usuarios.js';
 
 //Definimos la variable para usar las rutas de Express
@@ -18,6 +19,11 @@ const AllCallback = (res) => (err, result) => {
 	}
 };
 
+//Definimos la ruta a usar para el metodo GET en usuarios, esto para obtener el usaurio que se esta logeando y saber si existe en MongoDB
+rutasUsuario.route('/usuarios/iam').get((req, res) => {
+	consultarOcrearUsuario(req, AllCallback(res));
+});
+
 //Definimos la ruta a usar para el metodo GET en usuarios, esto para obtener todos los usuarios de MongoDB
 rutasUsuario.route('/usuarios').get((req, res) => {
 	consultarTodosUsuarios(AllCallback(res));
@@ -29,9 +35,9 @@ rutasUsuario.route('/usuarios').get((req, res) => {
 * data: {
 *		"tdocumento": "Cédula de ciudadanía",
 *		"ndocumento": 80203987,
-*		"nombres": "Roger Alexis",
+*		"name": "Roger Alexis",
 *		"telefono": 3205557788,
-*		"correo": "roger_valencia@yahoo.com",
+*		"email": "roger_valencia@yahoo.com",
 *		"tusuario": "Administrador",
 *		"estado": "Pendiente"
 *	}
@@ -47,9 +53,9 @@ rutasUsuario.route('/usuarios').post((req, res) => {
 * data: {
 *		"tdocumento": "Cédula de ciudadanía",
 *		"ndocumento": 80203987,
-*		"nombres": "Roger Alexis",
+*		"name": "Roger Alexis",
 *		"telefono": 3205557788,
-*		"correo": "roger_valencia@yahoo.com",
+*		"email": "roger_valencia@yahoo.com",
 *		"tusuario": "Administrador",
 *		"estado": "Autorizado"
 *	}
