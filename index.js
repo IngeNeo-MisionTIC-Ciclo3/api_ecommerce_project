@@ -12,6 +12,8 @@ import validarEstadoUsuario from './src/middleware/validarEstadoUsuario.js'
 //Nos permite usar los archivos .env para tener las rutas en otro lado no visibles en el repo
 dotenv.config({ path: './.env' });
 
+const port = process.env.PORT || 5050;
+
 const app = Express();
 
 app.use(Express.json());
@@ -41,8 +43,8 @@ app.use(rutasUsuario);
 
 //Función para iniciar el servidor en su escucha, usando el puerto definido desde la variables de entorno
 const principal = () => {
-	return app.listen(process.env.PORT, () => {
-		console.log(`Trabajando en el puerto ${process.env.PORT}`);
+	return app.listen(port, () => {
+		console.log(`Trabajando en el puerto ${port}`);
 	});
 };
 
