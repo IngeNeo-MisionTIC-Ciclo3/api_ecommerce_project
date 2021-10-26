@@ -6,13 +6,13 @@ Desarrollado en NodeJS - Express - MongoDB
 
 #### Colaboradores
 
-|     | Colaboradores                        | Interfaz - (Backend)                       |
-| --- | ------------------------------------ | ------------------------------------------ |
-| `1` | Roger Alexis Valencia Garcia.        | Maestro de producto - Get - Patch - Delete |
-| `2` | Diana Marcela Pinilla Ortegón        | Registro de producto - Post                |
-| `3` | Rafael Alejandro Lancheros Rodríguez | Maestro de venta - Get - Patch - Delete    |
-| `4` | Leidy Viviana Gallardo Rico          | Registro de venta - Post                   |
-| `5` | Javier Esteban Romero Medina         | Maestro de usuario - Get - Patch - Delete  |
+|     | Colaboradores                        |
+| --- | ------------------------------------ |
+| `1` | Roger Alexis Valencia Garcia.        |
+| `2` | Diana Marcela Pinilla Ortegón        |
+| `3` | Rafael Alejandro Lancheros Rodríguez |
+| `4` | Leidy Viviana Gallardo Rico          |
+| `5` | Javier Esteban Romero Medina         |
 
 ### Link al tablero de Trello
 
@@ -39,14 +39,26 @@ Ejemplo respuesta esperada:
 ```
 [
 {
-	"_id": "XXXXXXXXXXXXXXXXXXXXXXX",
-	"tdocumento": "Cédula de ciudadanía",
-	"ndocumento": 79654258,
-	"nombres": "Roger Alexis Valencia García",
-	"telefono": 3205557788,
-	"correo": "rogervalencia@gmail.com",
-	"tusuario": "Administrador",
-	"estado": "No Autorizado"
+	{
+		"clientID":"1rCaefPr0j6RjQsGzrmJKPcGcunKCHiW",
+		"created_at":"2021-10-23T03:55:14.661Z",
+		"email":"javier.rom1911@gmail.com",
+		"email_verified":true,
+		"family_name":"Romero",
+		"given_name":"Javier Esteban",
+		"locale":"es-419",
+		"name":"Javier Esteban Romero",
+		"nickname":"javier.rom1911",
+		"picture":"https://lh3.googleusercontent.com/a/AATXAJzuHB0JWr_Mt2FQNRgujfiXh88rLRxVAUAjq-Br=s96-c",
+		"updated_at":"2021-10-23T03:55:14.661Z",
+		"user_id":"google-oauth2|113315330490166023804",
+		"auth0ID":"e3cb12c7ef1f82aa1faedead70dcfaa5",
+		"tusuario":"Administrador",
+		"estado":"Autorizado",
+		"ndocumento":"XXXXXXXXX",
+		"tdocumento":"Cédula de Ciudadania",
+		"telefono":"3126949137"
+	}
 }
 ]
 ```
@@ -56,14 +68,30 @@ Ejemplo respuesta esperada:
 	url: 'http://localhost:XXXX/usuarios/xxxxxxxxxxxxxxxxxxx',
 
 	data: {
-		"_id": "XXXXXXXXXXXXXXXXXXXXXXX",
-		"tdocumento": "Cédula de ciudadanía",
-		"ndocumento": 79654258,
-		"nombres": "Roger Alexis Valencia García",
-		"telefono": 3205557788,
-		"correo": "rogervalencia@gmail.com",
-		"tusuario": "Administrador",
-		"estado": "No Autorizado"
+		[
+			{
+				{
+					"clientID":"1rCaefPr0j6RjQsGzrmJKPcGcunKCHiW",
+					"created_at":"2021-10-23T03:55:14.661Z",
+					"email":"javier.rom1911@gmail.com",
+					"email_verified":true,
+					"family_name":"Romero",
+					"given_name":"Javier Esteban",
+					"locale":"es-419",
+					"name":"Javier Esteban Romero",
+					"nickname":"javier.rom1911",
+					"picture":"https://lh3.googleusercontent.com/a/AATXAJzuHB0JWr_Mt2FQNRgujfiXh88rLRxVAUAjq-Br=s96-c",
+					"updated_at":"2021-10-23T03:55:14.661Z",
+					"user_id":"google-oauth2|113315330490166023804",
+					"auth0ID":"e3cb12c7ef1f82aa1faedead70dcfaa5",
+					"tusuario":"Administrador",
+					"estado":"Autorizado",
+					"ndocumento":"XXXXXXXXX",
+					"tdocumento":"Cédula de Ciudadania",
+					"telefono":"3126949137"
+				}
+			}
+		]
 	}
 };
 
@@ -74,30 +102,6 @@ Ejemplo respuesta esperarda:
 	"lastErrorObject": {
 		"n": 1,
 		"updatedExisting": true
-	},
-	"value": {
-		"_id": "XXXXXXXXXXXXXXXXXXXXXXX",
-		"tdocumento": "Cédula de ciudadanía",
-		"ndocumento": 79654258,
-		"nombres": "Roger Alexis Valencia García",
-		"telefono": 3205557788,
-		"correo": "rogervalencia@gmail.com",
-		"tusuario": "Administrador",
-		"estado": "No Autorizado"
-	},
-	"ok": 1,
-	"$clusterTime": {
-		"clusterTime": {
-		"$timestamp": "7017935252668547074"
-		},
-		"signature": {
-		"hash": "o8NqWHGXF30DKvPmHWbifhWUjRM=",
-		"keyId": {
-			"low": 1,
-			"high": 1623321998,
-			"unsigned": false
-			}
-		}
 	},
 	"operationTime": {
 		"$timestamp": "7017935252668547074"
@@ -188,28 +192,6 @@ Ejemplo respuesta esperarda:
 		"n": 1,
 		"updatedExisting": true
 	},
-	"value": {
-		"_id": "xxxxxxxxxxxxxxxxxxx'",
-		"nom_producto":"Camisa formal",
-		"descripcion": "Prueba Crear",
-		"valorU": 50000,
-		"cantidad": 15,
-		"estado": "Disponible"
-	},
-	"ok": 1,
-	"$clusterTime": {
-		"clusterTime": {
-		"$timestamp": "7017935252668547074"
-		},
-		"signature": {
-		"hash": "o8NqWHGXF30DKvPmHWbifhWUjRM=",
-		"keyId": {
-			"low": 1,
-			"high": 1623321998,
-			"unsigned": false
-			}
-		}
-	},
 	"operationTime": {
 		"$timestamp": "7017935252668547074"
 	}
@@ -237,19 +219,32 @@ method: 'POST',
 url: 'http://localhost:XXXX/ventas/'
 
 	data: {
-		"id_cliente": "10123654789",
-		"nom_cliente": "Cliente1",
-		"id_vendedor": "10478912365",
-		"nom_vendedor": "Vendedor1",
-		"id_producto": "XXXXXXXXXXXX",
-		"nom_producto": "Camiseta elegante",
-		"cantidad": 2,
-		"v_unitario": 80000,
-		"v_total": 160000,
-		"estado": "En proceso"
+		{"_id":
+			{"$oid":"617368ad4ee07322fa0e53c2"},
+			"id_cliente":"XXXXXXX",
+			"nom_cliente":"Roger Alexis Valencia Garcia",
+			"vendedor":{
+				"_id":"6161ce3307bec00891feba3d",
+				"estado":"Autorizado",
+				"ndocumento":{"$numberInt":"1151970864"},
+				"tdocumento":"Cedula",
+				"telefono":{"$numberDouble":"3126621010.0"},
+				"tusuario":"Vendedor",
+				"email":"javierromero@gmail.com",
+				"name":"Javier Esteban Romero Medica"
+				},
+			"productos":[[{"_id":"617375e34ee07322fa0e53c3",
+				"nom_producto":"Prueba NewProduct",
+				"descripcion":"Polombia",
+				"valorU":"50000",
+				"cantidad":"5",
+				"estado":"Disponible",
+				"total":{"$numberInt":"250000"}}]],
+				"fecha":"2021-10-22",
+				"estado":"En proceso"}
 	}
-
 };
+
 
 Ejemplo respuesta esperarda:
 
@@ -272,19 +267,31 @@ Ejemplo respuesta esperarda:
 
 ```
 [
-{
-	"_id": "xxxxxxxxxxxxxxxxxxx",
-	"id_cliente": "10123654789",
-	"nom_cliente": "Cliente1",
-	"id_vendedor": "10478912365",
-	"nom_vendedor": "Vendedor1",
-	"id_producto": "XXXXXXXXXXXX",
-	"nom_producto": "Camiseta elegante",
-	"cantidad": 2,
-	"v_unitario": 80000,
-	"v_total": 160000,
-	"estado": "En proceso"
-}
+	data: {
+		{"_id":
+			{"$oid":"617368ad4ee07322fa0e53c2"},
+			"id_cliente":"XXXXXXXX",
+			"nom_cliente":"Roger Alexis Valencia Garcia",
+			"vendedor":{
+				"_id":"6161ce3307bec00891feba3d",
+				"estado":"Autorizado",
+				"ndocumento":{"$numberInt":"XXXXXXXX"},
+				"tdocumento":"Cedula",
+				"telefono":{"$numberDouble":"3126621010.0"},
+				"tusuario":"Vendedor",
+				"email":"javierromero@gmail.com",
+				"name":"Javier Esteban Romero Medica"
+				},
+			"productos":[[{"_id":"617375e34ee07322fa0e53c3",
+				"nom_producto":"Prueba NewProduct",
+				"descripcion":"Polombia",
+				"valorU":"50000",
+				"cantidad":"5",
+				"estado":"Disponible",
+				"total":{"$numberInt":"250000"}}]],
+				"fecha":"2021-10-22",
+				"estado":"En proceso"}
+	}
 ]
 ```
 
@@ -293,16 +300,29 @@ Ejemplo respuesta esperarda:
 	url: 'http://localhost:XXXX/ventas/xxxxxxxxxxxxxxxxxxx',
 
 	data: {
-		"id_cliente": "10123654789",
-		"nom_cliente": "Cliente1",
-		"id_vendedor": "10478912365",
-		"nom_vendedor": "Vendedor1",
-		"id_producto": "XXXXXXXXXXXX",
-		"nom_producto": "Camiseta informal",
-		"cantidad": 3,
-		"v_unitario": 40000,
-		"v_total": 120000,
-		"estado": "En proceso"
+		{"_id":
+			{"$oid":"617368ad4ee07322fa0e53c2"},
+			"id_cliente":"XXXXXXXX",
+			"nom_cliente":"Roger Alexis Valencia Garcia",
+			"vendedor":{
+				"_id":"6161ce3307bec00891feba3d",
+				"estado":"Autorizado",
+				"ndocumento":{"$numberInt":"XXXXXXXX"},
+				"tdocumento":"Cedula",
+				"telefono":{"$numberDouble":"3126621010.0"},
+				"tusuario":"Vendedor",
+				"email":"javierromero@gmail.com",
+				"name":"Javier Esteban Romero Medica"
+				},
+			"productos":[[{"_id":"617375e34ee07322fa0e53c3",
+				"nom_producto":"Prueba NewProduct",
+				"descripcion":"Polombia",
+				"valorU":"50000",
+				"cantidad":"5",
+				"estado":"Disponible",
+				"total":{"$numberInt":"250000"}}]],
+				"fecha":"2021-10-22",
+				"estado":"En proceso"}
 	}
 };
 
@@ -313,33 +333,6 @@ Ejemplo respuesta esperarda:
 	"lastErrorObject": {
 	"n": 1,
 	"updatedExisting": true
-	},
-	"value": {
-		"_id": "xxxxxxxxxxxxxxxxxxx",
-		"id_cliente": "10123654789",
-		"nom_cliente": "Cliente1",
-		"id_vendedor": "10478912365",
-		"nom_vendedor": "Vendedor1",
-		"id_producto": "XXXXXXXXXXXX",
-		"nom_producto": "Camiseta elegante",
-		"cantidad": 2,
-		"v_unitario": 80000,
-		"v_total": 160000,
-		"estado": "En proceso"
-	},
-	"ok": 1,
-	"$clusterTime": {
-		"clusterTime": {
-			"$timestamp": "7017935252668547074"
-			},
-		"signature": {
-			"hash": "o8NqWHGXF30DKvPmHWbifhWUjRM=",
-			"keyId": {
-			"low": 1,
-			"high": 1623321998,
-			"unsigned": false
-			}
-		}
 	},
 	"operationTime": {
 		"$timestamp": "7017935252668547074"
